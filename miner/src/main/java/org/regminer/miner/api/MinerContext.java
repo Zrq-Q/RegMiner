@@ -27,8 +27,8 @@ public class MinerContext {
         this.projectProvider = projectProvider;
     }
 
-    public Regression start(){
+    public void start(){
 
-        return null;
+        return;
     }
 }
