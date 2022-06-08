@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
  * @Date: 2022/06/09/01:41
  * @Description:
  */
-public class ProjectProvider extends AbstractProjectsProvider {
+public class ProjectsProvider extends AbstractProjectsProvider {
 
     @Override
     public PriorityQueue getProjectList() {

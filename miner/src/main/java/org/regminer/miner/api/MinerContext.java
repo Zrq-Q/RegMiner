@@ -1,9 +1,5 @@
 package org.regminer.miner.api;
 
-import org.regminer.miner.model.Regression;
-
-import java.util.List;
-
 /**
  * @Author: sxz
  * @Date: 2022/06/08/22:32
@@ -15,16 +11,16 @@ public class MinerContext {
     private BICSearcher bicSearcher;
     private TestMigrator testMigrator;
     private ProjectBuilder projectBuilder;
-    private ProjectProvider projectProvider;
+    private ProjectsProvider projectsProvider;
 
     public MinerContext(PBFCParser pbfcParser, PRFCParser prfcParser, BICSearcher bicSearcher,
-                        TestMigrator testMigrator, ProjectBuilder projectBuilder, ProjectProvider projectProvider) {
+                        TestMigrator testMigrator, ProjectBuilder projectBuilder, ProjectsProvider projectsProvider) {
         this.pbfcParser = pbfcParser;
         this.prfcParser = prfcParser;
         this.bicSearcher = bicSearcher;
         this.testMigrator = testMigrator;
         this.projectBuilder = projectBuilder;
-        this.projectProvider = projectProvider;
+        this.projectsProvider = projectsProvider;
     }
 
     public void start(){
