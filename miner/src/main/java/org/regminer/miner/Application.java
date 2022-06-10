@@ -1,6 +1,12 @@
 package org.regminer.miner;
 
-import org.regminer.miner.api.*;
+import org.regminer.bic.api.BICSearcher;
+import org.regminer.ct.api.ProjectBuilder;
+import org.regminer.migrate.api.TestMigrator;
+import org.regminer.miner.api.MinerContext;
+import org.regminer.miner.api.ProjectsProvider;
+import org.regminer.rfc.api.PBFCParser;
+import org.regminer.rfc.api.PRFCParser;
 
 public class Application {
 

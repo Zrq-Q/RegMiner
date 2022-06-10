@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>org.regminer</groupId>
-            <artifactId>auto-compile</artifactId>
+            <artifactId>project-builder</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
