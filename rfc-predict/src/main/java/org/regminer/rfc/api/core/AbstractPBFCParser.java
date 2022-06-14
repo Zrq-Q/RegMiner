@@ -1,6 +1,9 @@
 package org.regminer.rfc.api.core;
 
 
+import org.eclipse.jgit.lib.Ref;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.regminer.common.model.BranchEntity;
 import org.regminer.rfc.model.PotentialBFC;
 
 import java.util.List;
@@ -11,6 +14,7 @@ import java.util.List;
  * @Description:
  */
 public abstract class AbstractPBFCParser {
-  public abstract List<PotentialBFC> getPBFCs();
-  public abstract PotentialBFC parser();
+  // Given meta project path, out PotentialBFC List
+  public abstract List<PotentialBFC> getPBFCs(String projectPath);
+  public abstract void parser(RevCommit commit, BranchEntity branch, List<PotentialBFC> potentialBFCList);
 }

@@ -43,6 +43,10 @@ public class GitUtils {
         }
     }
 
+   // TODO Given projectDir,get ALL commits in project
+    // all commits  format in
+
+
     public static List<DiffEntry> getDiffEntriesBetweenCommits(File codeDir, String newID, String oldID) {
         try (Repository repository = RepositoryProvider.getRepoFromLocal(codeDir); Git git = new Git(repository)) {
              return git.diff().
