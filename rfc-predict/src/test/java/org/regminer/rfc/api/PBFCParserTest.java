@@ -9,7 +9,18 @@ import org.junit.Test;
  */
 public class PBFCParserTest {
     @Test
-    void testGetPBFCList() {
+    void testGetPBFCListInProject() {
+        //TODO test here
+    }
+
+    @Test
+    void testGetAllCommitsInBranch(){
+        //TODO test here
+
+    }
+
+    @Test
+    void testParsePBFCForCommit(){
         //TODO test here
     }
 }
