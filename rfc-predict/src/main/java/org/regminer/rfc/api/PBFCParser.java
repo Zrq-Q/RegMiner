@@ -1,5 +1,7 @@
 package org.regminer.rfc.api;
 
+import org.apache.commons.collections4.IteratorUtils;
+import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
@@ -10,7 +12,6 @@ import org.regminer.rfc.model.PotentialBFC;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -18,7 +19,6 @@ import java.util.List;
  * @Date: 2022/06/09/00:10
  * @Description: PBFC ,Step1 :1) addition test case 2）key word "fix，close" in commit message
  * Step2: search testcase ,if not ,remove
- *
  */
 public class PBFCParser extends AbstractPBFCParser {
     private TestSearcher testSearcher;
@@ -38,25 +38,32 @@ public class PBFCParser extends AbstractPBFCParser {
 
     @Override
     public List<PotentialBFC> getPBFCs(String projectPath) {
-        List<PotentialBFC> potentialBFCS =new ArrayList<>();
+        List<PotentialBFC> potentialBFCS = new ArrayList<>();
         //get meta project dir from  projectPath
         File projectDir = new File(projectPath);
-        try (Repository repository = RepositoryProvider.getRepoFromLocal(projectDir)){
+        try (Repository repository = RepositoryProvider.getRepoFromLocal(projectDir); Git git = new Git(repository)) {
             // get all branch , i.e. ref
-            Collection<Ref> allRefs = repository.getAllRefs().values();
+            List<Ref> allRefs = repository.getRefDatabase().getRefs();
             // foreach allRefs, get PotentialBFC
-            allRefs.parallelStream().forEach(ref -> {
-               BranchEntity branch = new BranchEntity();
-              //  branch.setCommits(ref.getALLcommits);
+            for (Ref ref : allRefs){
+                BranchEntity branch = new BranchEntity();
+                branch.setCommits(getCommitsInBranch(ref,git));
                 branch.setRef(ref);
                 //for commits in ref
-                // parser(commit,branch,potentialBFCS )
-            });
-
+                for (RevCommit commit:branch.getCommits()){
+                    parser(commit,branch,potentialBFCS );
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public List<RevCommit> getCommitsInBranch(Ref ref, Git git) throws Exception {
+        List<RevCommit> commits = new ArrayList<>();
+        commits = IteratorUtils.toList(git.log().add(ref.getObjectId()).call().iterator());
+        return commits;
     }
 
     @Override
