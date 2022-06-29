@@ -15,16 +15,6 @@ import org.eclipse.jgit.revwalk.RevCommit;
 public abstract class CommitEntity {
     private String projectName;
     RevCommit revCommit;
-    BranchEntity branch;
-
-
-    public BranchEntity getBranch() {
-        return branch;
-    }
-
-    public void setBranch(BranchEntity branch) {
-        this.branch = branch;
-    }
 
     public String getProjectName() {
         return projectName;

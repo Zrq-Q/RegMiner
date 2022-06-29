@@ -8,19 +8,25 @@ import org.junit.Test;
  * @Description:
  */
 public class PBFCParserTest {
+
+    private PBFCParser pbfcParser;
+
     @Test
-    void testGetPBFCListInProject() {
+    public void testGetPBFCListInProject() {
         //TODO test here
+        PBFCParser pbfcParser = new PBFCParser();
+        pbfcParser.getPBFCs("E:\\reg\\RegMiner");
+
     }
 
     @Test
-    void testGetAllCommitsInBranch(){
+    public void testGetAllCommitsInBranch(){
         //TODO test here
 
     }
 
     @Test
-    void testParsePBFCForCommit(){
+    public void testParsePBFCForCommit(){
         //TODO test here
     }
 }

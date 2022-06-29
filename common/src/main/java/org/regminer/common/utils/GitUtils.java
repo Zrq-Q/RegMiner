@@ -36,6 +36,7 @@ public class GitUtils {
     public static boolean checkout(String commitID, File codeDir) {
         try (Git git = Git.open(codeDir)) {
             git.checkout().setName(commitID).call();
+            git.close();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
