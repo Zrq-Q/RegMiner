@@ -16,6 +16,7 @@ import regminer.utils.FileUtilx;
 import regminer.utils.ThreadPoolUtil;
 
 import regminer.model.*;
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -31,10 +32,11 @@ public class Miner {
     public static LinkedList<PotentialRFC> pRFCs;
     public static Set<String> setResult = new HashSet<>();
     static BugStorage bugStorage = new BugStorage();
+
     public static void main(String[] args) throws Exception {
-        long s1 =System.currentTimeMillis();
-		ConfigLoader.refresh();//加载配置
-		ProgressMonitor.load(); // 加载断点
+        long s1 = System.currentTimeMillis();
+        ConfigLoader.refresh();//加载配置
+        ProgressMonitor.load(); // 加载断点
 
         repo = new Provider().create(Provider.EXISITING).get(Conf.LOCAL_PROJECT_GIT);
         git = new Git(repo);
@@ -50,7 +52,7 @@ public class Miner {
             ex.printStackTrace();
         }
         long s2 = System.currentTimeMillis();
-        System.out.println(s2-s1);
+        System.out.println(s2 - s1);
     }
 
     public static void singleThreadHandle() throws Exception {
@@ -61,7 +63,7 @@ public class Miner {
         // 声明一些辅助变量
         float i = 0;
         float j = (float) pRFCs.size();
-        System.out.println("origin bfc number "+j);
+        System.out.println("origin bfc number " + j);
 //        FileUtilx.log("###############Start BFC SCORE EVOLUTION###########################");
 //        tm.evoluteBFCList(pRFCs);
 //        j = (float) pRFCs.size();
@@ -75,11 +77,12 @@ public class Miner {
             tm.evolute(pRfc);
             i++;
             FileUtilx.log(i / j + "%");
+            int count = 0;
             // TODO 此处的方法和类之间的affix按照mvn的习惯用"#"连接,没有配置子项目
             if (pRfc.getTestCaseFiles().size() == 0) { // 找不到测试用例直接跳过
                 iterator.remove();
             } else {
-                // 确定测试用例之后开始查找bic
+             /*   // 确定测试用例之后开始查找bic
                 Regression regression = finder.searchBIC(pRfc);
                 if (regression == null) {
                     continue;
@@ -102,7 +105,8 @@ public class Miner {
                 setResult.add(regressionLog);
                 if (Conf.sql_enable){
                     bugStorage.saveBug(regression);
-                }
+                }*/
+                count++;
             }
             ProgressMonitor.addDone(pRfc.getCommit().getName());
         }
