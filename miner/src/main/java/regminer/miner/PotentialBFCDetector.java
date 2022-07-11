@@ -321,8 +321,8 @@ public class PotentialBFCDetector {
      */
     private List<PotentialTestCase> findTestCommit(RevCommit commit, Integer index) throws Exception {
         int range = 20;
-        int min = 1;
-        int max = commitList.size();
+        int min = 0;
+        int max = commitList.size()-1;
 
         if (index > range) {
             min = index - range;
