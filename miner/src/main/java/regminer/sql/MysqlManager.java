@@ -20,10 +20,7 @@ package regminer.sql;
 
 import regminer.model.ProjectEntity;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -45,9 +42,16 @@ public class MysqlManager {
 
     }
 
+    public static  void con() throws SQLException {
+        String url = "jdbc:mysql://10.176.34.95:3306/experiment?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF8";
+        String user = "root";
+        String psw = "1235";
+        conn = DriverManager.getConnection(url,user,psw);
+    }
+
     public static void getStatement() throws Exception {
         if (conn == null) {
-            getConn();
+            con();
         }
         if (statement != null) {
             return;

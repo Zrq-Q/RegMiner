@@ -21,7 +21,7 @@ package regminer.sql;
 import regminer.constant.Conf;
 import regminer.model.ProjectEntity;
 import regminer.model.Regression;
-import regminer.model.RegressionWithGap;
+//import regminer.model.RegressionWithGap;
 
 public class BugStorage {
     public  void saveBug(Regression regression) {

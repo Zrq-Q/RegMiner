@@ -5,14 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eaa3034f-5941-4528-a85e-2808f3395b6e" name="Default Changelist" comment="fix a performance bug that some java process not be destroy">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_osgi_org_osgi_service_prefs_1_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_osgi_osgi_annotation_8_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/exec/TestManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/miner/migrate/SourceCodeManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/model/PBFC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/sql/PBFCDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/start/GetPBFC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/utils/RepositoryUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_47.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_83.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_1_10_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_1_10_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_launcher_1_10_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_launcher_1_10_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_commands_3_10_100.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_contenttype_3_8_100.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_contenttype_3_8_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_commands_3_10_200.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_expressions_3_8_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_expressions_3_8_100.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_filesystem_1_9_100.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_filesystem_1_9_400.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_jobs_3_12_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_jobs_3_13_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_resources_3_15_100.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_resources_3_17_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_runtime_3_23_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_core_runtime_3_25_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_equinox_app_1_6_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_equinox_app_1_6_100.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_equinox_common_3_15_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_equinox_common_3_16_100.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_equinox_preferences_3_9_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_equinox_registry_3_11_100.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_equinox_registry_3_11_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_equinox_preferences_3_10_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_osgi_3_17_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_osgi_3_18_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_text_3_12_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_platform_org_eclipse_text_3_12_100.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_java5_22_0_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_java5_23_0_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegMiner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RegMiner.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env.properties" beforeDir="false" afterPath="$PROJECT_DIR$/env.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/fastjson_fcp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fastjson_fcp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/exec/TestExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/exec/TestExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/git/Traverler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BFCEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BFCEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/exec/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/exec/Executor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/model/RegressionWithGap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/model/RegressionWithGap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/sql/BugStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/sql/BugStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/sql/MysqlManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/sql/MysqlManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/regminer/start/Miner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/start/Miner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/regminer/start/MinerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/regminer/start/MinerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/utils/GitUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/utils/GitUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +61,19 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="baseline" />
+        <entry key="$PROJECT_DIR$/.." value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/maven/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\Maven\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1wzKat5MkYx9f7d9WKsXhzdnpkS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -42,26 +82,47 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../RegMiner-E/miner" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.12674272" />
+    <property name="project.structure.side.proportion" value="0.21888888" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="regminer.start" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="regminer.miner.migrate" />
+      <recent name="regminer.exec" />
       <recent name="regminer.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MinerTest.testRegressionInFAlCePass">
+  <component name="RunManager" selected="Application.GetPBFC">
+    <configuration name="GetPBFC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="regminer.start.GetPBFC" />
+      <module name="RegMiner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="regminer.start.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Miner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="regminer.start.Miner" />
       <module name="RegMiner" />
@@ -122,11 +183,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GetPBFC" />
         <item itemvalue="JUnit.MinerTest.testRegressionInFAlCePass" />
         <item itemvalue="JUnit.MinerTest.regressionTest" />
         <item itemvalue="Application.MinerFilter" />
         <item itemvalue="Application.Miner" />
-        <item itemvalue="Application.MinerFilter" />
       </list>
     </recent_temporary>
   </component>
@@ -164,6 +225,17 @@
       <workItem from="1632402386387" duration="1475000" />
       <workItem from="1632664755594" duration="4774000" />
       <workItem from="1632674634205" duration="777000" />
+      <workItem from="1656898622913" duration="20760000" />
+      <workItem from="1656983865864" duration="9196000" />
+      <workItem from="1657265400485" duration="2463000" />
+      <workItem from="1657502307291" duration="10562000" />
+      <workItem from="1657588782809" duration="2923000" />
+      <workItem from="1657847861626" duration="2379000" />
+      <workItem from="1658141336345" duration="1385000" />
+      <workItem from="1658192814680" duration="26846000" />
+      <workItem from="1658367661289" duration="4546000" />
+      <workItem from="1658388573757" duration="15785000" />
+      <workItem from="1658712129277" duration="1131000" />
     </task>
     <task id="LOCAL-00001" summary="add MinerFilter">
       <created>1629528631635</created>
@@ -323,7 +395,22 @@
           <line>93</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java</url>
+          <line>352</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/miner$GetPBFC.ic" NAME="GetPBFC Coverage Results" MODIFIED="1656923547346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>regminer.start.*</FILTER>
+    </SUITE>
   </component>
 </project>

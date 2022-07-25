@@ -18,7 +18,11 @@ import org.eclipse.jgit.util.io.DisabledOutputStream;
 import regminer.constant.Conf;
 import regminer.constant.Constant;
 import regminer.constant.Priority;
+import regminer.exec.TestManager;
+import regminer.miner.migrate.SourceCodeManager;
 import regminer.model.*;
+import regminer.sql.PBFCDao;
+import regminer.start.ConfigLoader;
 import regminer.utils.FileUtilx;
 import regminer.utils.GitUtil;
 
@@ -26,8 +30,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class PotentialBFCDetector {
+    private static String projectName = "commons-jexl";
 
     private Repository repo;
     private Git git;
@@ -46,11 +52,15 @@ public class PotentialBFCDetector {
         this.git = git;
     }
 
+    ArrayList<RevCommit> commitList = new ArrayList<>();
+
     public List<PotentialRFC> detectPotentialBFC() throws Exception {
-        // 获取所有的commit，我们需要对所有的commit进行分析
+        // get all commit
         Iterable<RevCommit> commits = git.log().all().call();
-        // 开始迭代每一个commit
-        return detectAll(commits);
+        for (RevCommit commit : commits) {
+            commitList.add(commit);
+        }
+        return detectAll();
     }
 
     public List<PotentialRFC> detectPotentialBFC(List<String> commitsFilter) throws Exception {
@@ -60,13 +70,15 @@ public class PotentialBFCDetector {
         return potentialRFCS;
     }
 
-    private List<PotentialRFC> detectAll(Iterable<RevCommit> commits) throws Exception {
+    private List<PotentialRFC> detectAll() throws Exception {
         List<PotentialRFC> potentialRFCs = new LinkedList<PotentialRFC>();
         // 定义需要记录的实验数据
         int countAll = 0;
         // 开始迭代每一个commit
-        for (RevCommit commit : commits) {
-            detect(commit, potentialRFCs);
+        int index = 1;
+        for (RevCommit commit : commitList) {
+            detect(commit, potentialRFCs, index);
+            index++;
             countAll++;
         }
         FileUtilx.log("总共分析了" + countAll + "条commit\n");
@@ -81,7 +93,7 @@ public class PotentialBFCDetector {
         // 开始迭代每一个commit
         for (RevCommit commit : commits) {
             if (commitsFilter.contains(commit.getName())) {
-                detect(commit, potentialRFCs);
+//                detect(commit, potentialRFCs);
                 countAll++;
             }
         }
@@ -168,18 +180,18 @@ public class PotentialBFCDetector {
      */
     private boolean justChangeTestFileOnly(List<ChangedFile> files) {
         int num = 0;
-        int num_1 =0;
+        int num_1 = 0;
         for (ChangedFile file : files) {
             String str = file.getNewPath().toLowerCase();
             if (!str.contains("test") && str.endsWith(".java")) {
                 num++;
             }
-            if (str.endsWith(".java")){
+            if (str.endsWith(".java")) {
                 num_1++;
             }
 
         }
-        return (num == 0 && num_1>0);
+        return (num == 0 && num_1 > 0);
     }
 
     /**
@@ -270,41 +282,118 @@ public class PotentialBFCDetector {
     }
 
     /**
+     * detectPbfcNoCase
+     *
      * @param commit
      * @param potentialRFCs
      * @throws Exception
      */
-    private void detect(RevCommit commit, List<PotentialRFC> potentialRFCs) throws Exception {
-        // 1)首先我们将记录所有的标题中包含fix的commti
+    private void detect111(RevCommit commit, List<PotentialRFC> potentialRFCs) throws Exception {
         String message1 = commit.getFullMessage().toLowerCase();
-//        if (message1.contains("fix") || message1.contains("close")) {
-        if (true) {
-            // 针对标题包含fix的commit我们进一步分析本次提交修改的文件路径
-            List<ChangedFile> files = getLastDiffFiles(commit);
-            if (files == null) return;
-            List<TestFile> testcaseFiles = getTestFiles(files);
-            List<NormalFile> normalJavaFiles = getNormalJavaFiles(files);
-            List<SourceFile> sourceFiles = getSourceFiles(files);
-            // 1）若所有路径中存在任意一个路径包含test相关的Java文件则我们认为本次提交中包含测试用例。
-            // 2）若所有路径中除了测试用例还包含其他的非测试用例的Java文件则commit符合条件
-            if (testcaseFiles.size() > 0 && normalJavaFiles.size() > 0) {
-                PotentialRFC pRFC = new PotentialRFC(commit);
-                pRFC.setTestCaseFiles(testcaseFiles);
-                pRFC.setTestcaseFrom(PotentialRFC.TESTCASE_FROM_SELF);
-                pRFC.setNormalJavaFiles(normalJavaFiles);
-                pRFC.setSourceFiles(sourceFiles);
-                potentialRFCs.add(pRFC);
-            } else if (justNormalJavaFile(files) && (message1.contains("fix") || message1.contains("close"))) {
-//				针对只标题只包含fix但是修改的文件路径中没有测试用例的提交
-//				我们将在(c-3,c+3) 的范围内检索可能的测试用例
-//				[TODO] songxuezhi
-                List<PotentialTestCase> pls = findTestCommit(commit);
-                if (pls != null && pls.size() > 0) {
-                    PotentialRFC pRFC = new PotentialRFC(commit);
-                    pRFC.setNormalJavaFiles(normalJavaFiles);
-                    pRFC.setTestcaseFrom(PotentialRFC.TESTCASE_FROM_SEARCH);
-                    pRFC.setPotentialTestCaseList(pls);
-                    potentialRFCs.add(pRFC);
+        // 针对标题包含fix的commit我们进一步分析本次提交修改的文件路径
+        List<ChangedFile> files = getLastDiffFiles(commit);
+        if (files == null) {
+            return;
+        }
+        List<TestFile> testcaseFiles = getTestFiles(files);
+        if (testcaseFiles.isEmpty()) {
+            if ((message1.contains("fix") || message1.contains("close"))) {
+                PBFC pbfc = new PBFC();
+                pbfc.setCommitId(commit.getName());
+                pbfc.setCommitMessage(commit.getFullMessage());
+                pbfc.setProjectName(projectName);
+                PBFCDao.storagePBFC(pbfc);
+//                if (!findTestCommit(commit).isEmpty()) {
+//                    PBFCDao.setPTest(commit.getName());
+//                }
+            }
+        }
+    }
+
+    private void detect222(RevCommit commit, List<PotentialRFC> potentialRFCs, Integer index) throws Exception {
+        String message1 = commit.getFullMessage().toLowerCase();
+        List<ChangedFile> files = getLastDiffFiles(commit);
+        if (files == null) {
+            return;
+        }
+        List<TestFile> testcaseFiles = getTestFiles(files);
+        List<NormalFile> normalJavaFiles = getNormalJavaFiles(files);
+        List<SourceFile> sourceFiles = getSourceFiles(files);
+        // 1）若所有路径中存在任意一个路径包含test相关的Java文件则我们认为本次提交中包含测试用例。
+        // 2）若所有路径中除了测试用例还包含其他的非测试用例的Java文件则commit符合条件
+        if (!testcaseFiles.isEmpty() && !normalJavaFiles.isEmpty()) {
+            PBFC pbfc = new PBFC();
+            pbfc.setCommitId(commit.getName());
+            pbfc.setProjectName(projectName);
+            PBFCDao.storageOldPBFC(pbfc, 1);
+        } else if (justNormalJavaFile(files) && (message1.contains("fix") || message1.contains("close"))) {
+            List<PotentialTestCase> pls = findTestCommit(commit, index);
+            if (!pls.isEmpty()) {
+                PBFC pbfc = new PBFC();
+                pbfc.setCommitId(commit.getName());
+                pbfc.setProjectName(projectName);
+                //1.normal 2.+-2 3.+-20
+                PBFCDao.storageOldPBFC(pbfc, 3);
+            }
+        }
+
+    }
+
+    private void detect(RevCommit commit, List<PotentialRFC> potentialRFCs, Integer index) throws Exception {
+        List<ChangedFile> files = getLastDiffFiles(commit);
+        List<TestFile> testcaseFiles = getTestFiles(files);
+        List<NormalFile> normalJavaFiles = getNormalJavaFiles(files);
+        if (files == null) {
+            return;
+        }
+
+        if (!testcaseFiles.isEmpty() && !normalJavaFiles.isEmpty()) {
+            return;
+        }
+        if (testcaseFiles.isEmpty()) {
+            System.out.println("start handle commit " + commit.getName() + " and index is " + index);
+            TestManager testManager = new TestManager();
+            File metaProject = SourceCodeManager.getMetaProjectFile(projectName);
+            //1. checkout到当前commit
+            File curProjectFile = SourceCodeManager.checkout(commit, metaProject, projectName);
+            //存在target则删除
+//            SourceCodeManager.checkTarget(curProjectFile);
+            //build test，编译失败则返回null
+            Map<String, Integer> assumeBfc = testManager.run(curProjectFile);
+            if (assumeBfc == null || assumeBfc.isEmpty()) {
+              //  SourceCodeManager.deleteFile(curProjectFile);
+                return;
+            }
+//            SourceCodeManager.deleteFile(curProjectFile);
+
+            //2. checkout到当前commit的parent
+            RevCommit[] parentList = commit.getParents();
+            if (parentList.length == 0) {
+                return;
+            }
+            for (RevCommit parentCommit : parentList) {
+                File parentProjectFile = SourceCodeManager.checkout(parentCommit, metaProject, projectName);
+                SourceCodeManager.checkTarget(parentProjectFile);
+                Map<String, Integer> assumeBuggy = testManager.run(parentProjectFile);
+                //assumeTest: potential test
+                List<String> assumeTest = new ArrayList<>();
+                if(assumeBuggy==null || assumeBfc.isEmpty()){
+                    return;
+                }
+                if (!assumeBuggy.containsValue(1)) {
+                    return;
+                }
+                //遍历parent commit的test运行结果，存在1(failure)则搜索commit中该测试运行结果是否为0(pass)
+                for (Map.Entry<String, Integer> buggyTest : assumeBuggy.entrySet()) {
+                    if (buggyTest.getValue() == 1) {
+                        String testIdentify = buggyTest.getKey();
+                        if (assumeBfc.get(testIdentify) == 0) {
+                            assumeTest.add(testIdentify);
+                        }
+                    }
+                }
+                if (!assumeTest.isEmpty()) {
+                    PBFCDao.setPTest(commit.getName(), assumeTest);
                 }
             }
         }
@@ -317,68 +406,51 @@ public class PotentialBFCDetector {
      * @return
      * @throws Exception
      */
-    private List<PotentialTestCase> findTestCommit(RevCommit commit) throws Exception {
+    private List<PotentialTestCase> findTestCommit(RevCommit commit, Integer index) throws Exception {
+        int range = 20;
+        int min = 1;
+        int max = commitList.size();
+
+        if (index > range) {
+            min = index - range;
+        }
+        if (index + range < max) {
+            max = index + range;
+        }
+
         List<PotentialTestCase> potentialTestCases = new ArrayList<>();
-        RevWalk revWalk = new RevWalk(repo);
-        // 树结构 ^2 ^1 c ～1 ～2
-        // c^1
-        ObjectId newId1 = repo.resolve(commit.getName() + "~1");
-        RevCommit newRev1 = null;
-        if (newId1 != null) {
-            newRev1 = revWalk.parseCommit(newId1);
-            List<ChangedFile> files = getDiffFiles(commit, newRev1);
-            getPotentialTestCase(files,newRev1,1,potentialTestCases);
+        for (int i = min; i <= max; i++) {
+            if (i < index) {
+                RevCommit curCommit = commitList.get(i);
+                List<ChangedFile> files = getDiffFiles(curCommit, commit);
+                getPotentialTestCase(files, curCommit, i, potentialTestCases);
+            } else if (i > index) {
+                RevCommit curCommit = commitList.get(i);
+                List<ChangedFile> files = getDiffFiles(commit, curCommit);
+                getPotentialTestCase(files, curCommit, i, potentialTestCases);
+            }
         }
-
-        // c^2
-        ObjectId newId2 = repo.resolve(commit.getName() + "~2");
-        RevCommit newRev2 = null;
-        if (newId1 != null && newId2 != null) {
-            newRev2 = revWalk.parseCommit(newId2);
-            List<ChangedFile> files = getDiffFiles(newRev1, newRev2);
-            // 是否只有测试用例
-            getPotentialTestCase(files,newRev2,2,potentialTestCases);
-        }
-        // c~1
-        int num = commit.getParentCount();
-        if (num > 1) {
-            List<ChangedFile> files = getDiffFiles(commit.getParent(1), commit.getParent(0));
-            getPotentialTestCase(files,null,-1,potentialTestCases);
-            num--;
-        }
-        // c~2
-        if (num > 1) {
-            List<ChangedFile> files = getDiffFiles(commit.getParent(1), commit.getParent(0));
-            getPotentialTestCase(files,null,-2,potentialTestCases);
-            num--;
-        }
-
         return potentialTestCases;
     }
 
     private void getPotentialTestCase(List<ChangedFile> files, RevCommit commit, int index, List<PotentialTestCase> potentialTestCaseList) throws Exception {
-        if (!justChangeTestFileOnly(files)) {
-            return;
-        }
         PotentialTestCase potentialTestCase = new PotentialTestCase(index);
         List<TestFile> testFiles = getTestFiles(files);
-        List<SourceFile> sourceFiles =getSourceFiles(files);
+        List<SourceFile> sourceFiles = getSourceFiles(files);
 
         potentialTestCase.setTestFiles(testFiles);
         potentialTestCase.setSourceFiles(sourceFiles);
 
-        if (index > 0) {
-            savePotentialTestFile(files,commit, potentialTestCase);
-        }
+        savePotentialTestFile(files, commit, potentialTestCase);
         potentialTestCaseList.add(potentialTestCase);
-
     }
 
-    private void savePotentialTestFile(List<ChangedFile> files,RevCommit commit, PotentialTestCase potentialTestCase) {
+    private void savePotentialTestFile(List<ChangedFile> files, RevCommit commit, PotentialTestCase
+            potentialTestCase) {
         for (ChangedFile changedFile : files) {
             String filePath = changedFile.getNewPath();
             if (!filePath.equals(Constant.NONE_PATH)) {
-                File testFile = new File(Conf.TMP_FILE + File.separator+commit.getName()+File.separator+ filePath);
+                File testFile = new File(Conf.TMP_FILE + File.separator + commit.getName() + File.separator + filePath);
                 try {
                     FileUtils.writeStringToFile(testFile, GitUtil.getContextWithFile(repo, commit, filePath));
                     potentialTestCase.fileMap.put(filePath, testFile);

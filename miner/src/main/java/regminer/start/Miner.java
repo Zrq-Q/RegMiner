@@ -12,7 +12,7 @@ import regminer.miner.migrate.BICFinder;
 import regminer.model.PotentialRFC;
 import regminer.model.ProjectEntity;
 import regminer.model.Regression;
-import regminer.model.RegressionWithGap;
+//import regminer.model.RegressionWithGap;
 import regminer.monitor.ProgressMonitor;
 import regminer.sql.BugStorage;
 import regminer.utils.FileUtilx;

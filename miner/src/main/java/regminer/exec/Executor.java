@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * @author knightsong
@@ -94,10 +96,20 @@ public class Executor {
     }
 
     public String exec(String cmd) {
+        try {
+            return this.exec(cmd, 0);
+        } catch (TimeoutException e) {
+            e.printStackTrace(); // should not timeout
+            return null;
+        }
+    }
+
+    public String exec(String cmd, int timeout) throws TimeoutException {
         StringBuilder builder = new StringBuilder();
         Process process = null;
         InputStreamReader inputStr = null;
         BufferedReader bufferReader = null;
+        pb.redirectErrorStream(true); //redirect error stream to standard stream
         try {
             if (OS.contains(OS_WINDOWS)) {
                 pb.command("cmd.exe", "/c", cmd);
@@ -105,16 +117,22 @@ public class Executor {
                 pb.command("bash", "-c", cmd);
             }
             process = pb.start();
+            if (timeout > 0) {
+                boolean completed = process.waitFor(timeout, TimeUnit.MINUTES);
+                if (!completed) {
+                    throw new TimeoutException();
+                }
+            }
             inputStr = new InputStreamReader(process.getInputStream());
             bufferReader = new BufferedReader(inputStr);
             String line;
             while ((line = bufferReader.readLine()) != null) {
                 builder.append("\n").append(line);
             }
-        } catch (IOException ex) {
+        } catch (IOException | InterruptedException ex) {
             ex.printStackTrace();
         } finally {
-            try{
+            try {
                 if (process != null) {
                     process.destroy();
                 }
@@ -130,6 +148,94 @@ public class Executor {
         }
         return builder.toString();
     }
+
+    public Boolean execJudgeFailure(String cmd, int timeout) throws TimeoutException {
+        StringBuilder builder = new StringBuilder();
+        Process process = null;
+        InputStreamReader inputStr = null;
+        BufferedReader bufferReader = null;
+        pb.redirectErrorStream(true); //redirect error stream to standard stream
+        try {
+            if (OS.contains(OS_WINDOWS)) {
+                pb.command("cmd.exe", "/c", cmd);
+            } else {
+                pb.command("bash", "-c", cmd);
+            }
+            process = pb.start();
+            if (timeout > 0) {
+                boolean completed = process.waitFor(timeout, TimeUnit.MINUTES);
+                if (!completed) {
+                    throw new TimeoutException();
+                }
+            }
+            inputStr = new InputStreamReader(process.getInputStream());
+            bufferReader = new BufferedReader(inputStr);
+            String line;
+            while ((line = bufferReader.readLine()) != null) {
+                if(line.toLowerCase().contains("build failure")){
+                    return false;
+                }
+            }
+        } catch (IOException | InterruptedException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (process != null) {
+                    process.destroy();
+                }
+                if (inputStr != null) {
+                    IOUtils.close(inputStr);
+                }
+                if (bufferReader != null) {
+                    IOUtils.close(bufferReader);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return true;
+    }
+
+    public void execIgnoreResult(String cmd, int timeout) throws TimeoutException {
+        StringBuilder builder = new StringBuilder();
+        Process process = null;
+        InputStreamReader inputStr = null;
+        BufferedReader bufferReader = null;
+        pb.redirectErrorStream(true);
+        try {
+            if (OS.contains(OS_WINDOWS)) {
+                pb.command("cmd.exe", "/c", cmd);
+            } else {
+                pb.command("bash", "-c", cmd);
+            }
+            process = pb.start();
+            if (timeout > 0) {
+                boolean completed = process.waitFor(timeout, TimeUnit.MINUTES);
+                if (!completed) {
+                    throw new TimeoutException();
+                }
+            }
+            inputStr = new InputStreamReader(process.getInputStream());
+            bufferReader = new BufferedReader(inputStr);
+        } catch (IOException | InterruptedException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (process != null) {
+                    process.destroy();
+                }
+                if (inputStr != null) {
+                    IOUtils.close(inputStr);
+                }
+                if (bufferReader != null) {
+                    IOUtils.close(bufferReader);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     public int execPrintln(String cmd) {
         int a = 1;
