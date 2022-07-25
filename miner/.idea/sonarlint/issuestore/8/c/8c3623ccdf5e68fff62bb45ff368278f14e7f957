@@ -1,0 +1,76 @@
+
+k
+java:S3008+"URename this field "code_cover" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈÙ•¨
+r
+java:S3008,"WRename this field "auto_compile" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ½ÙĞıÿÿÿÿ
+j
+java:S3008-"TRename this field "JAVA_HONE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒúÉ
+n
+java:S1845+"XRename field "code_cover" to prevent any misunderstanding/clash with field "CODE_COVER".(ÈÙ•¨
+w
+java:S1845,"\Rename field "auto_compile" to prevent any misunderstanding/clash with field "AUTO_COMPILE".(Õ½ÙĞıÿÿÿÿ
+n
+java:S1450-"XRemove the "JAVA_HONE" field and declare it as a local variable in the relevant methods.(ƒúÉ
+P
+java:S1118":Add a private constructor to hide the implicit public one.(ôÃ­ÿ
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ò¨’üùÿÿÿÿ
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¤ÂÈ¾ûÿÿÿÿ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(’Ü™±
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Š‚¹‰
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(µ„àè
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ş®Ëï
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ùçíõ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¹û‚
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(û®å
+[
+java:S1124 "EReorder the modifiers to comply with the Java Language Specification.(æƒ„Ï
+`
+java:S1124!"EReorder the modifiers to comply with the Java Language Specification.(ş©§şÿÿÿÿ
+`
+java:S1124""EReorder the modifiers to comply with the Java Language Specification.(ûş·Õÿÿÿÿÿ
+`
+java:S1124#"EReorder the modifiers to comply with the Java Language Specification.(É¼Ÿÿÿÿÿÿ
+[
+java:S1124$"EReorder the modifiers to comply with the Java Language Specification.(„«˜‚
+Q	java:S1254"<This block of commented-out lines of code should be removed.(»µœí
+i
+java:S1104%"SMake envPath a static final constant or non-public and provide accessors if needed.(Ÿ¶Ú¹
+r
+java:S1104&"WMake projectName a static final constant or non-public and provide accessors if needed.(¨Êªûÿÿÿÿ
+i
+java:S1104'"SMake rootDir a static final constant or non-public and provide accessors if needed.(á ¿¨
+r
+java:S1104("WMake compileLine a static final constant or non-public and provide accessors if needed.(šòÂÏøÿÿÿÿ
+j
+java:S1104)"TMake testLine a static final constant or non-public and provide accessors if needed.(ÈÜ«ˆ
+q
+java:S1104*"VMake testSymbol a static final constant or non-public and provide accessors if needed.(ÿÉÜĞıÿÿÿÿ
+l
+java:S1104+"VMake code_cover a static final constant or non-public and provide accessors if needed.(ÈÙ•¨
+s
+java:S1104,"XMake auto_compile a static final constant or non-public and provide accessors if needed.(Õ½ÙĞıÿÿÿÿ
+C
+java:S1444%"-Make this "public static envPath" field final(Ÿ¶Ú¹
+L
+java:S1444&"1Make this "public static projectName" field final(¨Êªûÿÿÿÿ
+C
+java:S1444'"-Make this "public static rootDir" field final(á ¿¨
+L
+java:S1444("1Make this "public static compileLine" field final(šòÂÏøÿÿÿÿ
+D
+java:S1444)".Make this "public static testLine" field final(ÈÜ«ˆ
+K
+java:S1444*"0Make this "public static testSymbol" field final(ÿÉÜĞıÿÿÿÿ
+F
+java:S1444+"0Make this "public static code_cover" field final(ÈÙ•¨
+M
+java:S1444,"2Make this "public static auto_compile" field final(Õ½ÙĞıÿÿÿÿ

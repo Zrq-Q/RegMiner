@@ -1,0 +1,97 @@
+
+r
+java:S3008"WRename this field "PROJRCT_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øàÀôûÿÿÿÿ
+n
+java:S3008"SRename this field "ROOT_DIR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£§”Âûÿÿÿÿ
+m
+java:S3008"WRename this field "PROJECT_PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü‚ß±
+j
+java:S3008"TRename this field "META_PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£ûô®
+i
+java:S3008"SRename this field "TMP_FILE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ÎØ¨
+w
+java:S3008"\Rename this field "LOCAL_PROJECT_GIT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äÕ§şÿÿÿÿ
+k
+java:S3008"URename this field "CACHE_PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓÊ½Ÿ
+q
+java:S3008"VRename this field "RESULT_Path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íöÿ¦ùÿÿÿÿ
+o
+java:S3008 "TRename this field "CLONE_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆÙéäÿÿÿÿÿ
+m
+java:S3008%"WRename this field "BIC_SET_PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÑ›
+p
+java:S3008'"URename this field "code_cover" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ š›úÿÿÿÿ
+r
+java:S3008)"WRename this field "auto_compile" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÕòııÿÿÿÿ
+p
+java:S3008+"URename this field "sql_enable" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æ‡÷Èûÿÿÿÿ
+P
+java:S1118":Add a private constructor to hide the implicit public one.(ßÇ› 
+s
+java:S1104"XMake PROJRCT_NAME a static final constant or non-public and provide accessors if needed.(øàÀôûÿÿÿÿ
+o
+java:S1104"TMake ROOT_DIR a static final constant or non-public and provide accessors if needed.(£§”Âûÿÿÿÿ
+r
+java:S1104"WMake compileLine a static final constant or non-public and provide accessors if needed.(ã´‰’ıÿÿÿÿ
+~
+java:S1104"hMake methodClassLinkSymbolForTest a static final constant or non-public and provide accessors if needed.(¥¤›ç
+i
+java:S1104"TMake testLine a static final constant or non-public and provide accessors if needed.(íÊ‘~
+n
+java:S1104"XMake PROJECT_PATH a static final constant or non-public and provide accessors if needed.(Ü‚ß±
+k
+java:S1104"UMake META_PATH a static final constant or non-public and provide accessors if needed.(£ûô®
+j
+java:S1104"TMake TMP_FILE a static final constant or non-public and provide accessors if needed.(”ÎØ¨
+x
+java:S1104"]Make LOCAL_PROJECT_GIT a static final constant or non-public and provide accessors if needed.(äÕ§şÿÿÿÿ
+l
+java:S1104"VMake CACHE_PATH a static final constant or non-public and provide accessors if needed.(ÓÊ½Ÿ
+r
+java:S1104"WMake RESULT_Path a static final constant or non-public and provide accessors if needed.(íöÿ¦ùÿÿÿÿ
+p
+java:S1104 "UMake CLONE_URL a static final constant or non-public and provide accessors if needed.(ˆÙéäÿÿÿÿÿ
+p
+java:S1104#"UMake issueList a static final constant or non-public and provide accessors if needed.(ïÁ¾äùÿÿÿÿ
+n
+java:S1104%"XMake BIC_SET_PATH a static final constant or non-public and provide accessors if needed.(ôÑ›
+q
+java:S1104'"VMake code_cover a static final constant or non-public and provide accessors if needed.(¢ š›úÿÿÿÿ
+s
+java:S1104)"XMake auto_compile a static final constant or non-public and provide accessors if needed.(íÕòııÿÿÿÿ
+q
+java:S1104+"VMake sql_enable a static final constant or non-public and provide accessors if needed.(æ‡÷Èûÿÿÿÿ
+M
+java:S1444"2Make this "public static PROJRCT_NAME" field final(øàÀôûÿÿÿÿ
+I
+java:S1444".Make this "public static ROOT_DIR" field final(£§”Âûÿÿÿÿ
+L
+java:S1444"1Make this "public static compileLine" field final(ã´‰’ıÿÿÿÿ
+X
+java:S1444"BMake this "public static methodClassLinkSymbolForTest" field final(¥¤›ç
+C
+java:S1444".Make this "public static testLine" field final(íÊ‘~
+H
+java:S1444"2Make this "public static PROJECT_PATH" field final(Ü‚ß±
+E
+java:S1444"/Make this "public static META_PATH" field final(£ûô®
+D
+java:S1444".Make this "public static TMP_FILE" field final(”ÎØ¨
+R
+java:S1444"7Make this "public static LOCAL_PROJECT_GIT" field final(äÕ§şÿÿÿÿ
+F
+java:S1444"0Make this "public static CACHE_PATH" field final(ÓÊ½Ÿ
+L
+java:S1444"1Make this "public static RESULT_Path" field final(íöÿ¦ùÿÿÿÿ
+J
+java:S1444 "/Make this "public static CLONE_URL" field final(ˆÙéäÿÿÿÿÿ
+J
+java:S1444#"/Make this "public static issueList" field final(ïÁ¾äùÿÿÿÿ
+H
+java:S1444%"2Make this "public static BIC_SET_PATH" field final(ôÑ›
+K
+java:S1444'"0Make this "public static code_cover" field final(¢ š›úÿÿÿÿ
+M
+java:S1444)"2Make this "public static auto_compile" field final(íÕòııÿÿÿÿ
+K
+java:S1444+"0Make this "public static sql_enable" field final(æ‡÷Èûÿÿÿÿ

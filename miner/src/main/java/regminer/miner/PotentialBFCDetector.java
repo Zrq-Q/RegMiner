@@ -18,15 +18,14 @@ import org.eclipse.jgit.util.io.DisabledOutputStream;
 import regminer.constant.Conf;
 import regminer.constant.Constant;
 import regminer.constant.Priority;
+import regminer.exec.TestManager;
 import regminer.model.*;
+import regminer.start.ConfigLoader;
 import regminer.utils.FileUtilx;
 import regminer.utils.GitUtil;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class PotentialBFCDetector {
 
@@ -290,16 +289,15 @@ public class PotentialBFCDetector {
         List<TestFile> testcaseFiles = getTestFiles(files);
         List<NormalFile> normalJavaFiles = getNormalJavaFiles(files);
         List<SourceFile> sourceFiles = getSourceFiles(files);
-        //1.test+java
-       /* if (testcaseFiles.size() > 0 && normalJavaFiles.size() > 0) {
+     /*   //1.test+java
+        if (testcaseFiles.size() > 0 && normalJavaFiles.size() > 0) {
             PotentialRFC pRFC = new PotentialRFC(commit);
             pRFC.setTestCaseFiles(testcaseFiles);
             pRFC.setTestcaseFrom(PotentialRFC.TESTCASE_FROM_SELF);
             pRFC.setNormalJavaFiles(normalJavaFiles);
             pRFC.setSourceFiles(sourceFiles);
             potentialRFCs.add(pRFC);
-        } else */
-            if (justNormalJavaFile(files) && (commitMsg.contains("fix") || commitMsg.contains("close"))) {
+        } else if (justNormalJavaFile(files) && (commitMsg.contains("fix") || commitMsg.contains("close"))) {
             //2.java+fix/close
             List<PotentialTestCase> pTests = findTestCommit(commit, index);
             if (pTests.size() > 0) {
@@ -309,8 +307,36 @@ public class PotentialBFCDetector {
                 pRFC.setPotentialTestCaseList(pTests);
                 potentialRFCs.add(pRFC);
             }
+        }*/
+        if (justNormalJavaFile(files)) {
+            TestManager testManager = new TestManager();
+            File revDir = new File(ConfigLoader.rootDir + File.separator + ConfigLoader.projectName);
+            Map<String, Integer> assumeBfc = testManager.run(revDir);
+            //bfc-1
+            GitUtil.checkout(commitList.get(index - 1).getName(), revDir);
+            Map<String, Integer> assumeBuggy = testManager.run(revDir);
+            //assumeTest: potential test
+            ArrayList<String> assumeTest = new ArrayList<>();
+
+            if (!assumeBuggy.containsValue(1)) {
+                return;
+            }
+            for (Map.Entry<String, Integer> buggyTest : assumeBuggy.entrySet()) {
+                if (buggyTest.getValue() == 1) {
+                    String testIdentify = buggyTest.getKey();
+                    if (assumeBfc.get(testIdentify) == 0) {
+                        assumeTest.add(testIdentify);
+                    }
+                }
+            }
+
         }
     }
+
+    private void detect(RevCommit commit) {
+
+    }
+
 
     /**
      * 如果一个程序中仅包含了fix但没有测试用例，那么我们将在(-3,+3)中检索是否有单独的测试用例被提交

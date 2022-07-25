@@ -1,0 +1,38 @@
+
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(à±Ã¥
+u
+java:S1149D"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ƒõı»
+u
+java:S1149X"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ƒõı»
+T
+java:S1874)"9Remove this use of "writeStringToFile"; it is deprecated.(©®åÒùÿÿÿÿ
+>	java:S108L")Either remove or fill this block of code.(”ı¾
+>	java:S108`")Either remove or fill this block of code.(”ı¾
+>	java:S108s")Either remove or fill this block of code.(”ı¾
+?	java:S108†")Either remove or fill this block of code.(”ı¾
+2
+java:S3626’"Remove this redundant jump.(ÉŠ©ƒ
+`
+java:S3252"DUse static access with "com.alibaba.fastjson.JSON" for "parseArray".(ˆËüîüÿÿÿÿ
+{
+java:S2175‘"_"JSONObject" is a "Map<String, Object>" which cannot contain a "JSONObject" in a "String" type.(ú®¤‡şÿÿÿÿ
+?	java:S108“")Either remove or fill this block of code.(å¥‡
+p
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‹ëõ¤
+b
+java:S2095W"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Ô¬ÕÂ
+c
+java:S2095A"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(ÀˆóÙ
+c
+java:S2095}"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(ÀˆóÙ
+c
+java:S2095j"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(ÀˆóÙ
+b
+java:S2095C"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Ô¬ÕÂ
+b
+java:S2095l"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Ô¬ÕÂ
+b
+java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Ô¬ÕÂ
+c
+java:S2095U"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(ÀˆóÙ
