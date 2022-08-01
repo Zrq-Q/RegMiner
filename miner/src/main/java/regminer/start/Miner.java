@@ -108,7 +108,7 @@ public class Miner {
                 }*/
                 count++;
             }
-            ProgressMonitor.addDone(pRfc.getCommit().getName());
+//            ProgressMonitor.addDone(pRfc.getCommit().getName());
         }
         FileUtilx.log("########################END SEARCH################################");
         //此处log的bfc到bfc-1的数量成功率

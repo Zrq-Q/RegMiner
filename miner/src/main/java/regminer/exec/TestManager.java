@@ -29,17 +29,18 @@ public class TestManager {
      */
     HashMap<String, Integer> testResult = new HashMap<>();
 
-    public Map<String, Integer> run(File revDir) {
-        String buildCommand = "mvn compile";
-        String testCommand = "mvn test -Dmaven.test.failure.ignore=true";
+    public Map<String, Integer> run(File projectFile) {
+        String buildCommand = "mvn clean compile test-compile";
+        String testCommand = "mvn test";
+
         try {
-            Executor build = new Executor();
-            build.setDirectory(revDir);
-            build.exec(buildCommand);
             Executor test = new Executor();
-            test.setDirectory(revDir);
-            test.exec(testCommand);
-            getTestResult(revDir);
+            test.setDirectory(projectFile);
+//            if (!test.execJudgeFailure(buildCommand, 0)) {
+//                return null;
+//            }
+//            test.exec(testCommand);
+            getTestResult(projectFile);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -70,15 +71,16 @@ public class TestManager {
             List<Element> testCases = root.elements("testcase");
             for (Element testCase : testCases) {
                 String testIdentify = testCase.attributeValue("name") + "#" + testCase.attributeValue("classname");
-                if (testCase.element("failure") != null) {
+                if (testCase.element("error") != null || testCase.element("failure") != null) {
                     testResult.put(testIdentify, 1);
+                    System.out.println(testIdentify);
+                }else {
+                    testResult.put(testIdentify, 0);
                 }
-                testResult.put(testIdentify, 0);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
 }

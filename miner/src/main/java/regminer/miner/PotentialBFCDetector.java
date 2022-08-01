@@ -19,7 +19,9 @@ import regminer.constant.Conf;
 import regminer.constant.Constant;
 import regminer.constant.Priority;
 import regminer.exec.TestManager;
+import regminer.miner.migrate.SourceCodeManager;
 import regminer.model.*;
+import regminer.sql.PBFCDao;
 import regminer.start.ConfigLoader;
 import regminer.utils.FileUtilx;
 import regminer.utils.GitUtil;
@@ -31,6 +33,7 @@ public class PotentialBFCDetector {
 
     private Repository repo;
     private Git git;
+    String projectName = ConfigLoader.projectName;
 
 
     public PotentialBFCDetector(Repository repo, Git git) {
@@ -71,7 +74,9 @@ public class PotentialBFCDetector {
         // 开始迭代每一个commit
         int index = 1;
         for (RevCommit commit : commitList) {
-            detect(commit, potentialRFCs, index);
+            if (commit.getName().matches("050bdeacef3be920ebcd00ac408feb2de21cda40")) {
+                detect(commit, potentialRFCs, index);
+            }
             index++;
             countAll++;
         }
@@ -280,7 +285,7 @@ public class PotentialBFCDetector {
      * @param potentialRFCs
      * @throws Exception
      */
-    private void detect(RevCommit commit, List<PotentialRFC> potentialRFCs, Integer index) throws Exception {
+    private void detect11(RevCommit commit, List<PotentialRFC> potentialRFCs, Integer index) throws Exception {
         String commitMsg = commit.getFullMessage().toLowerCase();
         List<ChangedFile> files = getLastDiffFiles(commit);
         if (files == null) {
@@ -333,8 +338,63 @@ public class PotentialBFCDetector {
         }
     }
 
-    private void detect(RevCommit commit) {
+    private void detect(RevCommit commit, List<PotentialRFC> potentialRFCs, Integer index) throws Exception {
+        List<ChangedFile> files = getLastDiffFiles(commit);
+        List<TestFile> testcaseFiles = getTestFiles(files);
+        List<NormalFile> normalJavaFiles = getNormalJavaFiles(files);
+        if (files == null) {
+            return;
+        }
 
+        if (!testcaseFiles.isEmpty() && !normalJavaFiles.isEmpty()) {
+            return;
+        }
+        if (testcaseFiles.isEmpty()) {
+            System.out.println("start handle commit " + commit.getName() + " and index is " + index);
+            FileUtilx.log("start handle commit " + commit.getName() + " and index is " + index+ "\n");
+            File metaProject = SourceCodeManager.getMetaProjectFile(projectName);
+            //1. checkout到当前commit
+            File curProjectFile = SourceCodeManager.checkout(commit, metaProject, projectName);
+            TestManager testManagerBfc = new TestManager();
+            Map<String, Integer> assumeBfc = testManagerBfc.run(curProjectFile);
+            if (assumeBfc == null || assumeBfc.isEmpty()) {
+                return;
+            }
+
+            //2. checkout到当前commit的parent
+            RevCommit[] parentList = commit.getParents();
+            if (parentList.length == 0) {
+                return;
+            }
+            for (RevCommit parentCommit : parentList) {
+                File parentProjectFile = SourceCodeManager.checkout(parentCommit, metaProject, projectName);
+                TestManager testManagerBuggy = new TestManager();
+                Map<String, Integer> assumeBuggy = testManagerBuggy.run(parentProjectFile);
+                //assumeTest: potential test
+                List<String> assumeTest = new ArrayList<>();
+                if (assumeBuggy == null || assumeBfc.isEmpty()) {
+                    return;
+                }
+                if (!assumeBuggy.containsValue(1)) {
+                    return;
+                }
+                 //遍历parent commit的test运行结果，存在1(failure)则搜索commit中该测试运行结果是否为0(pass)
+                for (Map.Entry<String, Integer> buggyTest : assumeBuggy.entrySet()) {
+                    if (buggyTest.getValue() == 1) {
+                        String testIdentify = buggyTest.getKey();
+                        if (assumeBfc.get(testIdentify) == 0) {
+                            assumeTest.add(testIdentify);
+                        }
+                    }
+                }
+                if (!assumeTest.isEmpty()) {
+                    PBFC pbfc = new PBFC();
+                    pbfc.setCommitId(commit.getName());
+                    pbfc.setProjectName(projectName);
+                    PBFCDao.storagePBFC95(pbfc, 0, assumeTest);
+                }
+            }
+        }
     }
 
 

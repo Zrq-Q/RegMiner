@@ -1,9 +1,0 @@
-
-U
-java:S1118":Add a private constructor to hide the implicit public one.(ûò¬—ıÿÿÿÿ
-B
-java:S2386"'Make member "doneTaskList" "protected".(ëÀ‡–ûÿÿÿÿ
-n
-java:S1104"XMake doneTaskList a static final constant or non-public and provide accessors if needed.(µ—
-H
-java:S1444"2Make this "public static doneTaskList" field final(µ—

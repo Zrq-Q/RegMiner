@@ -5,12 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eaa3034f-5941-4528-a85e-2808f3395b6e" name="Default Changelist" comment="fix a performance bug that some java process not be destroy">
-      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/exec/TestManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/miner/migrate/SourceCodeManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/model/PBFC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/sql/PBFCDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/start/testFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/0911c1abd2bfb8b75878120d9fc01f640278393a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1c0b6c517f372c597098c24e07a404dc841e8caa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/d/4d78aa6ede8c02ecd1451934859a555d1964d262" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/567098479c0a572392f1e5b7855848265debffc4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/567098479c0a572392f1e5b7855848265debffc4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/a/5a8b234a15c9f913a32a4a4adb7dc55bd09980a9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/a/8ac2995b19d6a0225b6245acf10d4cc689c9c50b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/c/8c3623ccdf5e68fff62bb45ff368278f14e7f957" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/4/a495d706876f31554a423ed6d7ad4417152edfab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/6/a6425f150bd1413a5b371335284973c20a30c9dd" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env.properties" beforeDir="false" afterPath="$PROJECT_DIR$/env.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/exec/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/exec/Executor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/exec/TestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/exec/TestManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/utils/GitUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/utils/GitUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/start/Miner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/start/Miner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/exec/Executor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/exec/Executor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/exec/Runner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/exec/TestManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/exec/TestManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/regminer/miner/PotentialBFCDetector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/miner/PotentialBFCDetector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/start/Miner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/start/Miner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/utils/GitUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/utils/GitUtil.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,25 +77,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="regminer.sql" />
       <recent name="regminer.model" />
+      <recent name="regminer.miner.migrate" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestManager">
+  <component name="RunManager" selected="Application.testFilter">
     <configuration name="Miner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="regminer.start.Miner" />
-      <module name="RegMiner" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="regminer.start.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MinerFilter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="regminer.start.MinerFilter" />
       <module name="RegMiner" />
       <extension name="coverage">
         <pattern>
@@ -93,6 +102,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="regminer.exec.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testFilter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="regminer.start.testFilter" />
+      <module name="RegMiner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="regminer.start.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -134,11 +156,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.testFilter" />
         <item itemvalue="Application.TestManager" />
         <item itemvalue="Application.Miner" />
         <item itemvalue="JUnit.MinerTest.testRegressionInFAlCePass" />
         <item itemvalue="JUnit.MinerTest.regressionTest" />
-        <item itemvalue="Application.MinerFilter" />
       </list>
     </recent_temporary>
   </component>
@@ -183,6 +205,10 @@
       <workItem from="1658193142398" duration="11299000" />
       <workItem from="1658369485280" duration="1927000" />
       <workItem from="1658388571304" duration="591000" />
+      <workItem from="1659192851758" duration="5589000" />
+      <workItem from="1659283305729" duration="1167000" />
+      <workItem from="1659326275604" duration="9181000" />
+      <workItem from="1659347572087" duration="1496000" />
     </task>
     <task id="LOCAL-00001" summary="add MinerFilter">
       <created>1629528631635</created>
@@ -341,6 +367,26 @@
           <url>file://$PROJECT_DIR$/src/main/java/regminer/exec/TestExecutor.java</url>
           <line>93</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java</url>
+          <line>351</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java</url>
+          <line>358</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java</url>
+          <line>371</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java</url>
+          <line>389</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
