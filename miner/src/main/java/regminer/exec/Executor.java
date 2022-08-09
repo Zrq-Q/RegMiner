@@ -7,9 +7,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
@@ -147,12 +145,21 @@ public class Executor {
         Process process = null;
         InputStreamReader inputStr = null;
         BufferedReader bufferReader = null;
+        Timer t = null;
         try {
             if (OS.contains(OS_WINDOWS)) {
                 pb.command("cmd.exe", "/c", cmd);
             } else {
                 pb.command("bash", "-c", cmd);
             }
+            t = new Timer();
+            Process finalProcess = process;
+            t.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    finalProcess.destroy();
+                }
+            }, 600000);
             process = pb.start();
             inputStr = new InputStreamReader(process.getInputStream());
             bufferReader = new BufferedReader(inputStr);

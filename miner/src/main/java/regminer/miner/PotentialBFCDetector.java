@@ -74,9 +74,7 @@ public class PotentialBFCDetector {
         // 开始迭代每一个commit
         int index = 1;
         for (RevCommit commit : commitList) {
-            if (commit.getName().matches("050bdeacef3be920ebcd00ac408feb2de21cda40")) {
-                detect(commit, potentialRFCs, index);
-            }
+            detect(commit, potentialRFCs, index);
             index++;
             countAll++;
         }
@@ -285,7 +283,7 @@ public class PotentialBFCDetector {
      * @param potentialRFCs
      * @throws Exception
      */
-    private void detect11(RevCommit commit, List<PotentialRFC> potentialRFCs, Integer index) throws Exception {
+    private void detectOld(RevCommit commit, List<PotentialRFC> potentialRFCs, Integer index) throws Exception {
         String commitMsg = commit.getFullMessage().toLowerCase();
         List<ChangedFile> files = getLastDiffFiles(commit);
         if (files == null) {
@@ -338,7 +336,8 @@ public class PotentialBFCDetector {
         }
     }
 
-    private void detect(RevCommit commit, List<PotentialRFC> potentialRFCs, Integer index) throws Exception {
+    //exp1:run all test,find buggy fail + bfc pass
+    private void detect1(RevCommit commit, List<PotentialRFC> potentialRFCs, Integer index) throws Exception {
         List<ChangedFile> files = getLastDiffFiles(commit);
         List<TestFile> testcaseFiles = getTestFiles(files);
         List<NormalFile> normalJavaFiles = getNormalJavaFiles(files);
@@ -351,7 +350,7 @@ public class PotentialBFCDetector {
         }
         if (testcaseFiles.isEmpty()) {
             System.out.println("start handle commit " + commit.getName() + " and index is " + index);
-            FileUtilx.log("start handle commit " + commit.getName() + " and index is " + index+ "\n");
+            FileUtilx.log("start handle commit " + commit.getName() + " and index is " + index + "\n");
             File metaProject = SourceCodeManager.getMetaProjectFile(projectName);
             //1. checkout到当前commit
             File curProjectFile = SourceCodeManager.checkout(commit, metaProject, projectName);
@@ -378,7 +377,7 @@ public class PotentialBFCDetector {
                 if (!assumeBuggy.containsValue(1)) {
                     return;
                 }
-                 //遍历parent commit的test运行结果，存在1(failure)则搜索commit中该测试运行结果是否为0(pass)
+                //遍历parent commit的test运行结果，存在1(failure)则搜索commit中该测试运行结果是否为0(pass)
                 for (Map.Entry<String, Integer> buggyTest : assumeBuggy.entrySet()) {
                     if (buggyTest.getValue() == 1) {
                         String testIdentify = buggyTest.getKey();
@@ -394,6 +393,35 @@ public class PotentialBFCDetector {
                     PBFCDao.storagePBFC95(pbfc, 0, assumeTest);
                 }
             }
+        }
+    }
+
+    //exp2:find diff test in +-20 commits, migrate test to bfc and buggy,buggy fail/bfc pass
+    private void detect(RevCommit commit, List<PotentialRFC> potentialRFCs, Integer index) throws Exception {
+        List<ChangedFile> files = getLastDiffFiles(commit);
+        List<TestFile> testcaseFiles = getTestFiles(files);
+        List<NormalFile> normalJavaFiles = getNormalJavaFiles(files);
+        if (files == null) {
+            return;
+        }
+
+        if (!testcaseFiles.isEmpty() && !normalJavaFiles.isEmpty()) {
+            return;
+        }
+        if (justNormalJavaFile(files)) {
+            File metaProject = SourceCodeManager.getMetaProjectFile(projectName);
+
+            //1. find potentialTestCase
+            List<PotentialTestCase> pTests = findTestCommit(commit, index);
+            if (pTests.size() > 0) {
+                System.out.println("start handle commit " + commit.getName() + " and index is " + index);
+                PotentialRFC pRFC = new PotentialRFC(commit);
+                pRFC.setNormalJavaFiles(normalJavaFiles);
+                pRFC.setTestcaseFrom(PotentialRFC.TESTCASE_FROM_SEARCH);
+                pRFC.setPotentialTestCaseList(pTests);
+                potentialRFCs.add(pRFC);
+            }
+
         }
     }
 
@@ -420,9 +448,9 @@ public class PotentialBFCDetector {
         List<PotentialTestCase> potentialTestCases = new ArrayList<>();
         for (int i = min; i <= max; i++) {
             if (i < index) {
-                RevCommit curCommit = commitList.get(i);
-                List<ChangedFile> files = getDiffFiles(curCommit, commit);
-                getPotentialTestCase(files, curCommit, i, potentialTestCases);
+//                RevCommit curCommit = commitList.get(i);
+//                List<ChangedFile> files = getDiffFiles(curCommit, commit);
+//                getPotentialTestCase(files, curCommit, i, potentialTestCases);
             } else if (i > index) {
                 RevCommit curCommit = commitList.get(i);
                 List<ChangedFile> files = getDiffFiles(commit, curCommit);

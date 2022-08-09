@@ -13,9 +13,12 @@ import regminer.maven.JacocoMavenManager;
 import regminer.miner.RelatedTestCaseParser;
 import regminer.model.ChangedFile.Type;
 import regminer.model.MigrateItem.MigrateFailureType;
+import regminer.model.PBFC;
 import regminer.model.PotentialRFC;
 import regminer.model.RelatedTestCase;
 import regminer.model.TestFile;
+import regminer.sql.PBFCDao;
+import regminer.start.ConfigLoader;
 import regminer.utils.CompilationUtil;
 import regminer.utils.FileUtilx;
 
@@ -106,7 +109,7 @@ public class BFCEvaluator extends Migrator {
             }
 
             // 5. 测试BFC中的每一个待测试方法
-            testBFC(bfcDirectory, pRFC);
+             testBFC(bfcDirectory, pRFC);
 
             if (pRFC.getTestCaseFiles().size() <= 0) {
                 FileUtilx.log("BFC all test fal");
@@ -121,7 +124,8 @@ public class BFCEvaluator extends Migrator {
                 emptyCache(bfcID);
                 return;
             }
-            // 6.测试BFCP
+
+            // 8.测试BFCP
             String result = testBFCP(bfcpDirectory, pRFC.getTestCaseFiles());
 
             if (pRFC.getTestCaseFiles().size() > 0) {
@@ -129,6 +133,15 @@ public class BFCEvaluator extends Migrator {
                 //删除无关的测试用例
                 purgeUnlessTestcase(pRFC.getTestCaseFiles(), pRFC);//XXX:TestDenpendency:TEST REDUCE
                 FileUtilx.log("bfc~1 test fal" + result);
+
+                List<String> assumeTest  = new ArrayList<>();
+                for (TestFile testCaseFile : pRFC.getTestCaseFiles()) {
+                    assumeTest.add(testCaseFile.getQualityClassName());
+                }
+                PBFC pbfc = new PBFC();
+                pbfc.setCommitId(pRFC.getCommit().getName());
+                pbfc.setProjectName(ConfigLoader.projectName);
+                PBFCDao.storagePBFC95(pbfc, 1, assumeTest);
             } else {
                 FileUtilx.log("bfc~1 test success" + result);
                 emptyCache(bfcID);

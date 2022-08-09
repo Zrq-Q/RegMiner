@@ -87,7 +87,7 @@ public class TestExecutor extends Executor {
             while ((line = bufferReader.readLine()) != null) {
                 line = line.toLowerCase();
                 if (line.contains("build success")) {
-                    return MigrateFailureType.TESTSUCCESS;
+                     return MigrateFailureType.TESTSUCCESS;
                 } else if (line.contains("compilation error") || line.contains("compilation failure")) {
                     testCE = true;
                 } else if (line.contains("no test")) {

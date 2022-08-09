@@ -36,10 +36,10 @@ public class TestManager {
         try {
             Executor test = new Executor();
             test.setDirectory(projectFile);
-//            if (!test.execJudgeFailure(buildCommand, 0)) {
-//                return null;
-//            }
-//            test.exec(testCommand);
+            if (!test.execJudgeFailure(buildCommand, 0)) {
+                return null;
+            }
+            test.exec(testCommand);
             getTestResult(projectFile);
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -11,6 +11,7 @@ import regminer.model.PotentialRFC;
 import regminer.model.SourceFile;
 import regminer.model.TestFile;
 import regminer.utils.FileUtilx;
+import regminer.utils.GitUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,7 +34,8 @@ public class Migrator {
         FileUtils.copyDirectoryToDirectory(new File(Conf.META_PATH), new File(cacheFile));
         File result = new File(cacheFile + File.separator + "meta");
         exec.setDirectory(result);
-        exec.execPrintln("git checkout -f " + commitId);
+//        exec.execPrintln("git checkout -f " + commitId);
+        GitUtil.checkout(commitId, result);
         return result;
     }
 

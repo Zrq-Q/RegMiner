@@ -12,6 +12,7 @@ import regminer.model.PotentialRFC;
 import regminer.model.Regression;
 import regminer.monitor.ProgressMonitor;
 import regminer.sql.BugStorage;
+import regminer.sql.PBFCDao;
 import regminer.utils.FileUtilx;
 import regminer.utils.ThreadPoolUtil;
 
@@ -36,7 +37,6 @@ public class Miner {
     public static void main(String[] args) throws Exception {
         long s1 = System.currentTimeMillis();
         ConfigLoader.refresh();//加载配置
-        ProgressMonitor.load(); // 加载断点
 
         repo = new Provider().create(Provider.EXISITING).get(Conf.LOCAL_PROJECT_GIT);
         git = new Git(repo);
@@ -44,7 +44,8 @@ public class Miner {
             // 检测满足条件的BFC
             PotentialBFCDetector pBFCDetector = new PotentialBFCDetector(repo, git);
             pRFCs = (LinkedList<PotentialRFC>) pBFCDetector.detectPotentialBFC();
-            ProgressMonitor.rePlan(pRFCs);
+            System.out.println(pRFCs.size());
+//            ProgressMonitor.rePlan(pRFCs);
             // 开始每一个bfc所对应的bic，查找任务。
             singleThreadHandle(); // 单线程处理模式
             //mutilThreadHandle();// 多线程模式
@@ -57,19 +58,11 @@ public class Miner {
 
     public static void singleThreadHandle() throws Exception {
         // 工具类准备,1)测试方法查找 2)测试用例确定 3)BIC查找
-        RelatedTestCaseParser rTCParser = new RelatedTestCaseParser();
         BFCEvaluator tm = new BFCEvaluator(repo);
-        BICFinder finder = new BICFinder();
         // 声明一些辅助变量
         float i = 0;
         float j = (float) pRFCs.size();
         System.out.println("origin bfc number " + j);
-//        FileUtilx.log("###############Start BFC SCORE EVOLUTION###########################");
-//        tm.evoluteBFCList(pRFCs);
-//        j = (float) pRFCs.size();
-//        System.out.println("After evolution bfc number "+j);
-//        FileUtilx.log("#######################END EVOLUTION###############################");
-//        // 开始遍历每一个 Potential BFC
         Iterator<PotentialRFC> iterator = pRFCs.iterator();
         FileUtilx.log("########################Start################################");
         while (iterator.hasNext()) {
@@ -82,40 +75,11 @@ public class Miner {
             if (pRfc.getTestCaseFiles().size() == 0) { // 找不到测试用例直接跳过
                 iterator.remove();
             } else {
-             /*   // 确定测试用例之后开始查找bic
-                Regression regression = finder.searchBIC(pRfc);
-                if (regression == null) {
-                    continue;
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append(regression.getBugId()).append(",").append(regression.getBfcId())
-                        .append(",").append(regression.getBuggyId())
-                        .append(",").append(regression.getBicId())
-                        .append(",").append(regression.getWorkId())
-                        .append(",").append(regression.getTestCase());
-                if (regression instanceof RegressionWithGap){
-                    sb .append(",").append(1);
-                }else{
-                    sb .append(",").append(0);
-                }
-                String regressionLog = sb.toString();
-                if (!setResult.contains(regressionLog)) {
-                    FileUtilx.apendResult(regressionLog);
-                }
-                setResult.add(regressionLog);
-                if (Conf.sql_enable){
-                    bugStorage.saveBug(regression);
-                }*/
                 count++;
             }
 //            ProgressMonitor.addDone(pRfc.getCommit().getName());
         }
         FileUtilx.log("########################END SEARCH################################");
-        //此处log的bfc到bfc-1的数量成功率
-//		FileUtilx.log("classNotFind " + ExperResult.classNotFind + "methodNotFind " + ExperResult.methodNotFind
-//				+ "packageNotExits " + ExperResult.packageNotExits + "packageNotFind " + ExperResult.packageNotFind
-//				+ "symbolNotFind " + ExperResult.symbolNotFind + "unknow " + ExperResult.unknow + "variableNotFind "
-//				+ ExperResult.variableNotFind);
     }
 
     public static void mutilThreadHandle() {

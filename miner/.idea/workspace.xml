@@ -1,36 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="RegMiner:jar2" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eaa3034f-5941-4528-a85e-2808f3395b6e" name="Default Changelist" comment="fix a performance bug that some java process not be destroy">
-      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/miner/migrate/SourceCodeManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/model/PBFC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/sql/PBFCDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/regminer/start/testFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/0911c1abd2bfb8b75878120d9fc01f640278393a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1c0b6c517f372c597098c24e07a404dc841e8caa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/d/4d78aa6ede8c02ecd1451934859a555d1964d262" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/567098479c0a572392f1e5b7855848265debffc4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/567098479c0a572392f1e5b7855848265debffc4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/a/5a8b234a15c9f913a32a4a4adb7dc55bd09980a9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/a/8ac2995b19d6a0225b6245acf10d4cc689c9c50b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/c/8c3623ccdf5e68fff62bb45ff368278f14e7f957" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/4/a495d706876f31554a423ed6d7ad4417152edfab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/6/a6425f150bd1413a5b371335284973c20a30c9dd" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RegMiner_jar2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/2/329d99344834454c8c101c97b7c2121f80845f17" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/567098479c0a572392f1e5b7855848265debffc4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/60a8a80df0876fda3dc47aff866da17114f03cb7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/d/6d5991502b4efa76c3c71c4f7ff89a704f94c2c9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/9/7973172edcd9cec6758873c7afc5c199cbf24d88" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/7/c740a26465439eb1ba005a96b579876e212ce60e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/d/dd9184d15de8324ad0250af74c0b3284a15d71ba" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env.properties" beforeDir="false" afterPath="$PROJECT_DIR$/env.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/regminer/exec/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/exec/Executor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/exec/TestExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/exec/TestExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/regminer/exec/TestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/exec/TestManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BFCEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BFCEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/miner/migrate/Migrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/miner/migrate/Migrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/regminer/start/ConfigLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/start/ConfigLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/regminer/start/Miner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/regminer/start/Miner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/ast/JdtClassRetriever.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/ast/JdtClassRetriever.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/ast/JdtFieldRetriever.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/ast/JdtFieldRetriever.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/ast/JdtMethodRetriever.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/ast/JdtMethodRetriever.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/callgraph/model/AdjacencyList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/callgraph/model/AdjacencyList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/callgraph/model/CallNode$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/callgraph/model/CallNode$Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/callgraph/model/CallNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/callgraph/model/CallNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/callgraph/model/MethodCallGraph$NoParentNodeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/callgraph/model/MethodCallGraph$NoParentNodeException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/callgraph/model/MethodCallGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/callgraph/model/MethodCallGraph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/callgraph/model/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/callgraph/model/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/constant/Conf.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/constant/Conf.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/constant/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/constant/Constant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/constant/ExperResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/constant/ExperResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/constant/Priority.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/constant/Priority.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/coverage/CodeCoverage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/coverage/CodeCoverage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/coverage/model/CoverClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/coverage/model/CoverClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/coverage/model/CoverMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/coverage/model/CoverMethod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/coverage/model/CoverNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/coverage/model/CoverNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/coverage/model/CoverPackage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/coverage/model/CoverPackage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/regminer/exec/Executor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/exec/Executor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/regminer/exec/Runner.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/regminer/exec/TestManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/exec/TestManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/finalize/SycFileCleanup$SycCleaner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/finalize/SycFileCleanup$SycCleaner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/finalize/SycFileCleanup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/finalize/SycFileCleanup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/git/GitTracker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/git/GitTracker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/git/provider/Provider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/git/provider/Provider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/git/provider/RepositoryProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/git/provider/RepositoryProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/git/provider/RepositoryProviderCloneImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/git/provider/RepositoryProviderCloneImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/git/provider/RepositoryProviderExistingClientImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/git/provider/RepositoryProviderExistingClientImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/maven/JacocoMavenManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/maven/JacocoMavenManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/maven/MavenManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/maven/MavenManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/regminer/miner/PotentialBFCDetector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/miner/PotentialBFCDetector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/miner/RelatedTestCaseParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/miner/RelatedTestCaseParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/BFCEvaluator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/BFCEvaluator$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/BFCEvaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/BFCEvaluator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/BFCTracker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/BFCTracker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/BICFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/BICFinder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/Migrator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/Migrator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/SourceCodeManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/SourceCodeManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/TestCaseMigrator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/TestCaseMigrator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/model/CompileWay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/model/CompileWay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/model/MergeTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/miner/migrate/model/MergeTask.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/ChangedFile$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/ChangedFile$Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/ChangedFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/ChangedFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/Methodx.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/Methodx.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/MigrateItem$MigrateFailureType$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/MigrateItem$MigrateFailureType$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/MigrateItem$MigrateFailureType$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/MigrateItem$MigrateFailureType$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/MigrateItem$MigrateFailureType$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/MigrateItem$MigrateFailureType$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/MigrateItem$MigrateFailureType$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/MigrateItem$MigrateFailureType$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/MigrateItem$MigrateFailureType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/MigrateItem$MigrateFailureType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/MigrateItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/MigrateItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/NormalFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/NormalFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/PBFC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/PBFC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/PotentialRFC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/PotentialRFC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/PotentialTestCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/PotentialTestCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/Regression.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/Regression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/RegressionWithGap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/RegressionWithGap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/RelatedTestCase$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/RelatedTestCase$Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/RelatedTestCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/RelatedTestCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/SourceFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/SourceFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/model/TestFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/model/TestFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/monitor/ProgressMonitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/monitor/ProgressMonitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/sql/BugRetrieve.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/sql/BugRetrieve.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/sql/BugStorage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/sql/BugStorage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/sql/MysqlManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/sql/MysqlManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/sql/PBFCDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/sql/PBFCDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/start/ConfigLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/start/ConfigLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/start/Miner$SycTaskHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/start/Miner$SycTaskHandle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/regminer/start/Miner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/start/Miner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/start/MinerFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/start/MinerFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/start/MinerSingleFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/start/MinerSingleFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/start/testFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/start/testFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/utils/CodeUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/utils/CodeUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/utils/CompilationUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/utils/CompilationUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/utils/FileUtilx.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/utils/FileUtilx.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/regminer/utils/GitUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/utils/GitUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/regminer/utils/ThreadPoolUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/regminer/utils/ThreadPoolUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/old_version/BinarySearchx.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/old_version/BinarySearchx.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/old_version/TestBlame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/old_version/TestBlame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/old_version/TestDiffEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/old_version/TestDiffEntry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/old_version/collector/TestBICFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/old_version/collector/TestBICFinder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/regminer/coverage/CodeCoverageTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/regminer/coverage/CodeCoverageTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/regminer/exec/ExecutorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/regminer/exec/ExecutorTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/regminer/finalize/SycFileCleanupTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/regminer/finalize/SycFileCleanupTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/regminer/maven/JacocoMavenManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/regminer/maven/JacocoMavenManagerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/regminer/maven/MavenManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/regminer/maven/MavenManagerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/regminer/start/MinerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/regminer/start/MinerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/regminer/testsuite/RegMinerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/regminer/testsuite/RegMinerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/regminer/utils/CompilationUtilTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/regminer/utils/CompilationUtilTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/regminer/utils/FileUtilsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/regminer/utils/FileUtilsTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/regminer/utils/ThreadPoolUtilTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/regminer/utils/ThreadPoolUtilTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +153,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../data/miner_space/mybatis-3/meta" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -73,7 +161,8 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.45983088" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -82,7 +171,7 @@
       <recent name="regminer.miner.migrate" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.testFilter">
+  <component name="RunManager" selected="Application.Miner">
     <configuration name="Miner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="regminer.start.Miner" />
       <module name="RegMiner" />
@@ -122,6 +211,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MinerTest.regressionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RegMiner" />
       <extension name="coverage">
@@ -156,9 +258,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Miner" />
         <item itemvalue="Application.testFilter" />
         <item itemvalue="Application.TestManager" />
-        <item itemvalue="Application.Miner" />
         <item itemvalue="JUnit.MinerTest.testRegressionInFAlCePass" />
         <item itemvalue="JUnit.MinerTest.regressionTest" />
       </list>
@@ -208,7 +310,10 @@
       <workItem from="1659192851758" duration="5589000" />
       <workItem from="1659283305729" duration="1167000" />
       <workItem from="1659326275604" duration="9181000" />
-      <workItem from="1659347572087" duration="1496000" />
+      <workItem from="1659347572087" duration="6559000" />
+      <workItem from="1659716780781" duration="37000" />
+      <workItem from="1659923252092" duration="23639000" />
+      <workItem from="1660024280316" duration="7530000" />
     </task>
     <task id="LOCAL-00001" summary="add MinerFilter">
       <created>1629528631635</created>
@@ -290,7 +395,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="origin/richy" />
                       </list>
                     </value>
                   </entry>
@@ -319,11 +424,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/regminer/start/Miner.java</url>
-          <line>176</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BICFinder.java</url>
           <line>235</line>
           <option name="timeStamp" value="12" />
@@ -340,18 +440,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BFCEvaluator.java</url>
-          <line>109</line>
+          <line>112</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BFCEvaluator.java</url>
-          <line>229</line>
+          <line>242</line>
           <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/regminer/exec/TestExecutor.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/regminer/exec/TestExecutor.java</url>
@@ -359,34 +454,64 @@
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/regminer/exec/TestExecutor.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/regminer/exec/TestExecutor.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java</url>
-          <line>351</line>
+          <line>350</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java</url>
-          <line>358</line>
+          <line>357</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java</url>
-          <line>371</line>
+          <line>370</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/PotentialBFCDetector.java</url>
-          <line>389</line>
+          <line>388</line>
           <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BFCEvaluator.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/start/Miner.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BFCEvaluator.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BFCEvaluator.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BFCEvaluator.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BFCEvaluator.java</url>
+          <line>113</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BFCEvaluator.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/regminer/miner/migrate/BFCEvaluator.java</url>
+          <line>130</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
